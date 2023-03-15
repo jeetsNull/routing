@@ -12,18 +12,31 @@ const LayoutRouting = () => {
             console.log(route);
             return (
               route.element && (
+                <>
                 <Route
                   key={idx}
                   path={route.path}
                   exact={route.exact}
                   name={route.name}
-                 // subelement={route.submenu.map((item, id)=>{<item.element/>})}
-                  element={route?.submenu?.map((item, id)=>{<item.element />})}
-                 // element={<route.element/>}
-
-                 
-                  
+                  element={<route.element/>}
                 />
+                {/* {route?.submenu?.map((item, id)=>{
+                  console.log("----------",item)
+                  return(
+                    item?.submenu?.element && (
+                      <Route
+                      key={id}
+                      path={item.path}
+                      exact={item.exact}
+                      name={item.name}
+                      element={<item.element/>}
+                    />
+                    )
+                  )
+                })} */}
+                
+            
+                </>
               )
             );
           })}
