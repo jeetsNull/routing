@@ -9,13 +9,12 @@ const Sidebar = ({handleExpandMenu}) => {
       <div id="sidebar-menu">
         <ul>
           {Routing &&
-            Routing.map((item, id) => {
+            Routing.map((item, index) => {
               // console.log("----",item);
               return (
                 item.element && (
-                  <li>
-                    <Link to={item.path} style={{ textDecoration: "none" }}>{item.name}</Link>
-                    {item.submenu ? <SubMenu submenu={item.submenu} /> : ""}
+                  <li key={index}>
+                    <Link  to={item.path} style={{ textDecoration: "none" }}>{item.name}</Link>
                   </li>
                 )
               );
